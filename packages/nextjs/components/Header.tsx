@@ -20,7 +20,11 @@ export const menuLinks: HeaderMenuLink[] = [
     label: "Home",
     href: "/",
   },
-
+  {
+    label: "CryptoPet",
+    href: "/cryptopet",
+    icon: <span className="text-lg">🐾</span>,
+  },
   {
     label: "Debug Contracts",
     href: "/debug",

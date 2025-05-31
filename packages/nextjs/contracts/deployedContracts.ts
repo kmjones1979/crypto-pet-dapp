@@ -4,6 +4,350 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  31337: {
+    CryptoPet: {
+      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      abi: [
+        {
+          name: "PetAdopted",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+              indexed: true,
+            },
+            {
+              name: "pet_name",
+              type: "string",
+              indexed: false,
+            },
+            {
+              name: "timestamp",
+              type: "uint256",
+              indexed: false,
+            },
+          ],
+          anonymous: false,
+          type: "event",
+        },
+        {
+          name: "PetFed",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+              indexed: true,
+            },
+            {
+              name: "happiness_increase",
+              type: "uint256",
+              indexed: false,
+            },
+            {
+              name: "new_happiness",
+              type: "uint256",
+              indexed: false,
+            },
+          ],
+          anonymous: false,
+          type: "event",
+        },
+        {
+          name: "PetPlayed",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+              indexed: true,
+            },
+            {
+              name: "energy_increase",
+              type: "uint256",
+              indexed: false,
+            },
+            {
+              name: "new_energy",
+              type: "uint256",
+              indexed: false,
+            },
+          ],
+          anonymous: false,
+          type: "event",
+        },
+        {
+          name: "RewardEarned",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+              indexed: true,
+            },
+            {
+              name: "reward_amount",
+              type: "uint256",
+              indexed: false,
+            },
+          ],
+          anonymous: false,
+          type: "event",
+        },
+        {
+          stateMutability: "view",
+          type: "function",
+          name: "check_has_pet",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+            },
+          ],
+        },
+        {
+          stateMutability: "view",
+          type: "function",
+          name: "get_pet_info",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "tuple",
+              components: [
+                {
+                  name: "name",
+                  type: "string",
+                },
+                {
+                  name: "happiness",
+                  type: "uint256",
+                },
+                {
+                  name: "energy",
+                  type: "uint256",
+                },
+                {
+                  name: "last_fed",
+                  type: "uint256",
+                },
+                {
+                  name: "last_played",
+                  type: "uint256",
+                },
+                {
+                  name: "total_rewards",
+                  type: "uint256",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          stateMutability: "payable",
+          type: "function",
+          name: "adopt_pet",
+          inputs: [
+            {
+              name: "pet_name",
+              type: "string",
+            },
+          ],
+          outputs: [],
+        },
+        {
+          stateMutability: "nonpayable",
+          type: "function",
+          name: "feed_pet",
+          inputs: [],
+          outputs: [],
+        },
+        {
+          stateMutability: "nonpayable",
+          type: "function",
+          name: "play_with_pet",
+          inputs: [],
+          outputs: [],
+        },
+        {
+          stateMutability: "view",
+          type: "function",
+          name: "get_current_pet_status",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+            },
+            {
+              name: "",
+              type: "uint256",
+            },
+            {
+              name: "",
+              type: "string",
+            },
+          ],
+        },
+        {
+          stateMutability: "view",
+          type: "function",
+          name: "get_next_interaction_times",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+            },
+            {
+              name: "",
+              type: "uint256",
+            },
+          ],
+        },
+        {
+          stateMutability: "nonpayable",
+          type: "function",
+          name: "withdraw_funds",
+          inputs: [],
+          outputs: [],
+        },
+        {
+          stateMutability: "payable",
+          type: "function",
+          name: "deposit_reward_funds",
+          inputs: [],
+          outputs: [],
+        },
+        {
+          stateMutability: "nonpayable",
+          type: "function",
+          name: "emergency_feed",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+            },
+          ],
+          outputs: [],
+        },
+        {
+          stateMutability: "payable",
+          type: "fallback",
+        },
+        {
+          stateMutability: "view",
+          type: "function",
+          name: "pets",
+          inputs: [
+            {
+              name: "arg0",
+              type: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "tuple",
+              components: [
+                {
+                  name: "name",
+                  type: "string",
+                },
+                {
+                  name: "happiness",
+                  type: "uint256",
+                },
+                {
+                  name: "energy",
+                  type: "uint256",
+                },
+                {
+                  name: "last_fed",
+                  type: "uint256",
+                },
+                {
+                  name: "last_played",
+                  type: "uint256",
+                },
+                {
+                  name: "total_rewards",
+                  type: "uint256",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          stateMutability: "view",
+          type: "function",
+          name: "has_pet",
+          inputs: [
+            {
+              name: "arg0",
+              type: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+            },
+          ],
+        },
+        {
+          stateMutability: "view",
+          type: "function",
+          name: "total_pets",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+            },
+          ],
+        },
+        {
+          stateMutability: "view",
+          type: "function",
+          name: "contract_owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+            },
+          ],
+        },
+        {
+          stateMutability: "nonpayable",
+          type: "constructor",
+          inputs: [],
+          outputs: [],
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;
